@@ -16,7 +16,10 @@ export default {
       },
       fontFamily: {
         lato: ['Lato', ...defaultTheme.fontFamily.sans],
-      }
+      },
+      inset: {
+        '1/3': '29%',
+      },
     },
   },
   plugins: [],
