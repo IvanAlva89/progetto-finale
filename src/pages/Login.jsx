@@ -34,6 +34,7 @@ const Login = () => {
                 role,
                 token: `${role.toUpperCase()}_JWT_TOKEN`,
                 data: user,
+                cart_id: user.cart_id,
             });
 
             navigate("/users");

@@ -7,7 +7,8 @@ export const SessionProvider = ({ children }) => {
     const [auth, setAuth] = useState({
         role: null, // null || "user" || "seller"
         token: null, // null || "TOKEN_STRING"
-        data: null // null, || { ...user_info } || { ...seller_info }
+        data: null, // null, || { ...user_info } || { ...seller_info }
+        cart_id: null, // null || String
     });
 
     const handleSetAuth = (value) => {

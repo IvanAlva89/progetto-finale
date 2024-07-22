@@ -20,7 +20,7 @@ const select = (from, where = null) => {
 
         _relations.forEach(({ label, collection, primary_key }) => {
             const primary_value = item[label];
-            const value = data[collection].find(e => e[primary_key] == primary_value);
+            const value = data[collection]?.find(e => e[primary_key] == primary_value);
 
             if (value) {
                 item[label] = value;
@@ -33,10 +33,14 @@ const select = (from, where = null) => {
 
 // Create
 const create = (to, value) => {
-    data[to].push({
+    const item = {
         ...value,
         id: new Date().getTime().toString()
-    })
+    };
+
+    data[to].push(item);
+
+    return item;
 }
 
 // Update
@@ -70,9 +74,16 @@ const deleteById = (from, id) => {
     return _item;
 }
 
+// Replace all
+const replaceAll = (from, newData) => {
+    data[from] = newData;
+    return data[from];
+}
+
 export const db = {
     select,
     create,
     updateById,
     deleteById,
+    replaceAll,
 }

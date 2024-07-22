@@ -10,6 +10,15 @@ export const getUserCartItems = (user_id) => {
 }
 
 /**
+ * Add product to cart
+ * @param {object} cart_item 
+ * @returns {object}
+ */
+export const addItemToCart = (cart_item) => {
+    return db.create("cart_items", cart_item);
+}
+
+/**
  * Update cart item quantity
  * @param {string} cart_item_id 
  * @param {number} qnt 
@@ -27,3 +36,7 @@ export const updateCartItemQntById = (cart_item_id, qnt) => {
 export const deleteCartItem = (cart_item_id) => {
     return db.deleteById("cart_items", { id: cart_item_id });
 }
+
+export const replaceAllCartItem = (cart) => {
+    return db.replaceAll("cart_items", cart);
+} 

@@ -37,7 +37,8 @@ export default {
             first_name: "Alessandro",
             last_name: "D'Antoni",
             email: "alexdant91@gmail.com",
-            password: "1234"
+            password: "1234",
+            cart_id: "1",
         },
     ],
     sellers: [
