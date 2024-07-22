@@ -68,19 +68,19 @@ const Login = () => {
                 )
             }
             <div className="mx-auto px-4 flex flex-col place-items-center mt-56">
-                <select className="font-lato w-64 font-extrabold bg-[#1e90ff] rounded text-white right-2/4" value={role} onChange={handleChangeRole}>
+                <select className="font-lato w-64 font-extrabold bg-[#1e90ff] rounded text-white right-2/4 rounded-xl mb-3" value={role} onChange={handleChangeRole}>
                     <option className="text-[#1e90ff] bg-white" value="seller">Seller</option>
                     <option className="text-[#1e90ff] bg-white" value="user">User</option>
                 </select>
-                <form className="flex flex-col w-64 right-2/4 h-64 place-items-center justify-center gap-4 rounded font-lato font-extrabold bg-[#1e90ff] rounded border-gray-200 border-2" onSubmit={handleLogin}>
+                <form className="flex flex-col w-64 right-2/4 h-64 place-items-center justify-center gap-4 rounded-xl font-lato font-extrabold bg-blue-100 rounded" onSubmit={handleLogin}>
                     <div>
                         <input className="px-2" type="email" name="email" value={form.email} onInput={handleInput} placeholder="E-mail" />
                     </div>
                     <div>
                         <input className="px-2" type="password" name="password" value={form.password} onInput={handleInput} placeholder="Password" />
                     </div>
-                    <div className="border-gray-200 border-2 rounded text-gray-200">
-                        <button type="submit" className="px-5 py-2 hover:border-3 hover:text-lg hover:text-[#1e90ff] hover:bg-white text-white">Login</button>
+                    <div>
+                        <button type="submit" className="px-5 py-2 hover:border-3 hover:text-lg hover:text-white hover:bg-[#1e90ff] text-[#1e90ff] rounded-xl">Login</button>
                     </div>
                 </form>
             </div>
