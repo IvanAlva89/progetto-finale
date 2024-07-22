@@ -28,7 +28,7 @@ const ProtectedRoute = ({ children, role }) => {
 const RedirectToDashboardIfLogged = ({ children }) => {
     const [auth] = useSession();
 
-    if (!auth.role) {
+    if (!auth?.role) {
         return children;
     }
 

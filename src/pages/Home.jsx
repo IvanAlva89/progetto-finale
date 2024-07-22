@@ -1,7 +1,8 @@
 import ProductCard from "../components/shared/ProductCard";
-import "../assets/importCss/style.css";
+import { getAllProducts } from "../utilities/products";
 
 const Home = () => {
+  const products = getAllProducts();
   return (
     <>
       <div className="w-full h-misura-header-picture bg-cover bg-no-repeat bg-header-picture-2">
@@ -52,9 +53,9 @@ const Home = () => {
             </div>
           </div>
           <div className="gap-3 flex p-6 rounded justify-center">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            {products.map((product) => {
+              return <ProductCard key={product.id} product={product} />;
+            })}
           </div>
         </section>
       </div>
