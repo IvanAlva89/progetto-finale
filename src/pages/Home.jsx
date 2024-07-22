@@ -5,9 +5,10 @@ const Home = () => {
   const products = getAllProducts();
   return (
     <>
-      <div className="w-full h-misura-header-picture bg-cover bg-no-repeat bg-header-picture-2">
+      <div className=" relative w-full h-misura-header-picture bg-cover bg-no-repeat bg-header-picture-2">
+        <h1 className="mx-auto px-4 text-6xl text-center text-white font-lato font-extrabold absolute top-1/4 right-2/4 leading-tight">Il futuro della tecnologia a<br />portata di tutti</h1>
         <div className="w-full h-full flex flex-col justify-center items-center">
-          <button className="absolute left-1/3 bg-violet-200 hover:bg-violet-300 font-lato font-bold rounded-md px-7 py-3">
+          <button className="absolute right-[70%] bottom-1/4 bg-violet-200 hover:bg-violet-300 font-lato font-bold rounded-md px-7 py-3">
             Shop Now
           </button>
         </div>
