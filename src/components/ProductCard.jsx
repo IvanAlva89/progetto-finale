@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCart } from "../hooks/useCart"
 import { useSession } from "../hooks/useSession";
 import { addItemToCart } from "../utilities/carts";
@@ -25,7 +26,13 @@ const ProductCard = ({ product }) => {
                 <p className="font-bold font-lato ">{product.price}€</p>
                 <h2 className="mb-2 text-2xl font-black tracking-tight text-gray-900">{product.name}</h2>
                 <span className="text-lg font-italic text-gray-900">Smarphone performante con un potente processore di ultima generazione</span>
-                <button onClick={() => addToCart(product)} className="bg-blue-500 hover:bg-blue-700 text-white rounded-md px-7 py-3">Aggiungi al carrello</button>
+                {
+                    auth?.role == "user" ? (
+                        <button onClick={() => addToCart(product)} className="bg-blue-500 hover:bg-blue-700 text-white rounded-md px-7 py-3">Aggiungi al carrello</button>
+                    ) : (
+                        <Link to="/login?r=home" className="bg-blue-500 hover:bg-blue-700 text-white rounded-md px-7 py-3">Accedi per aggiungere al carrello</Link>
+                    )
+                }
             </div>
         </>
     )

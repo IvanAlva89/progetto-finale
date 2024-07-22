@@ -60,9 +60,7 @@ const PublicNavbar = () => {
                                     </div>
                                     {
                                         auth?.role == "user" && (
-                                            <div className="py-2 px-4 flex justify-center">
-                                                <CartButton />
-                                            </div>
+                                            <CartButton />
                                         )
                                     }
                                 </>

@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { findSellerByEmailAndPassword, findUserByEmailAndPassword } from "../utilities/auth";
 import { useSession } from "../hooks/useSession";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+
+const R_MAP = {
+    "home": "/",
+};
 
 const Login = () => {
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
 
     const [_, setAuth] = useSession();
     const [role, setRole] = useState("user");
@@ -37,7 +42,7 @@ const Login = () => {
                 cart_id: user.cart_id,
             });
 
-            navigate("/users");
+            navigate(searchParams.get("r") ? R_MAP[searchParams.get("r")] : "/users");
 
         } catch(err) {
             setError(`${_formatRoleNameOnError()} not found`);
