@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { findSellerByEmailAndPassword, findUserByEmailAndPassword } from "../utilities/auth";
 import { useSession } from "../hooks/useSession";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { createNewUser } from "../utilities/users";
+import { createNewSeller } from "../utilities/sellers";
 
 const R_MAP = {
     "home": "/",
 };
 
-const Login = () => {
+const Register = () => {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
 
@@ -16,34 +17,29 @@ const Login = () => {
     const [form, setForm] = useState({
         email: "",
         password: "",
+        first_name: "",
+        last_name: "",
+        name: "",
     });
     const [error, setError] = useState(false);
-    const [message, setMessage] = useState(searchParams.get("m") ? atob(searchParams.get("m")) : false);
 
     const _formatRoleNameOnError = () => {
         return `${role.toString().charAt(0).toUpperCase()}${role.split("").splice(1, role.length).join("")}`;
     }
 
-    const handleLogin = (e) => {
+    const handleRegister = (e) => {
         e.preventDefault();
         if (error) setError(false);
 
         try {
-            const user = role == "user" ? findUserByEmailAndPassword(form.email, form.password) : findSellerByEmailAndPassword(form.email, form.password);
+            const user = role == "user" ? createNewUser({ ...form }) : createNewSeller({ ...form });
 
             if (!user) {
                 setError(`${_formatRoleNameOnError()} not found`);
                 return;
             }
 
-            setAuth({
-                role,
-                token: `${role.toUpperCase()}_JWT_TOKEN`,
-                data: user,
-                cart_id: user.cart_id,
-            });
-
-            navigate(searchParams.get("r") ? R_MAP[searchParams.get("r")] : "/users");
+            navigate(searchParams.get("r") ? R_MAP[searchParams.get("r")] : `/login?m=${btoa("Ora puoi accedere con il tuo account")}`);
 
         } catch(err) {
             setError(`${_formatRoleNameOnError()} not found`);
@@ -68,27 +64,41 @@ const Login = () => {
                     </div>
                 )
             }
-            {
-                message && (
-                    <div className="bg-green-100 text-green-800 p-4 rounded flex justify-between w-1/3">
-                        <p>{message}</p>
-                        <button onClick={() => setMessage(false)}>Close</button>
-                    </div>
-                )
-            }
             <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                    <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Accedi al tuo account</h2>
+                    <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Registrati</h2>
                 </div>
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6" onSubmit={handleLogin}>
+                    <form className="space-y-6" onSubmit={handleRegister}>
                         <div>
-                            <label for="role" className="block text-sm font-medium leading-6 text-gray-900">Accedi come</label>
+                            <label for="role" className="block text-sm font-medium leading-6 text-gray-900">Registrati come</label>
                             <select id="role" value={role} onChange={handleChangeRole} className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
-                                <option value="">Accedi come...</option>
+                                <option value="">Registrati come...</option>
                                 <option value="user">User</option>
                                 <option value="seller">Seller</option>
                             </select>
+                        </div>
+                        {
+                            role == "seller" && (
+                                <div>
+                                    <label for="name" className="block text-sm font-medium leading-6 text-gray-900">Nome Azienda</label>
+                                    <div className="mt-2">
+                                        <input id="name" name="name" value={form.name} onInput={handleInput} type="text" autocomplete="name" required className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                                    </div>
+                                </div>
+                            )
+                        }
+                        <div>
+                            <label for="first_name" className="block text-sm font-medium leading-6 text-gray-900">Nome</label>
+                            <div className="mt-2">
+                                <input id="first_name" name="first_name" value={form.first_name} onInput={handleInput} type="text" autocomplete="first_name" required className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="last_name" className="block text-sm font-medium leading-6 text-gray-900">Cognome</label>
+                            <div className="mt-2">
+                                <input id="last_name" name="last_name" value={form.last_name} onInput={handleInput} type="text" autocomplete="last_name" required className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                            </div>
                         </div>
                         <div>
                             <label for="email" className="block text-sm font-medium leading-6 text-gray-900">Indirizzo Email</label>
@@ -109,8 +119,8 @@ const Login = () => {
                         </div>
                     </form>
                     <p className="mt-10 text-center text-sm text-gray-500 flex gap-2 items-center">
-                        Non hai un account?
-                        <Link to={`/register${searchParams.get("r") ? `?r=${searchParams.get("r")}` : ""}`} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Registrati</Link>
+                        Hai già un account?
+                        <Link to={`/login${searchParams.get("r") ? `?r=${searchParams.get("r")}` : ""}`} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Registrati</Link>
                     </p>
                 </div>
             </div>
@@ -118,4 +128,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Register

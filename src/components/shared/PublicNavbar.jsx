@@ -17,7 +17,7 @@ const PublicNavbar = () => {
 
     return (
         <>
-            <nav className="fixed w-full bg-white flex justify-center items-center h-12">
+            <nav className="fixed w-full bg-white flex justify-center items-center h-12 z-40">
                 <div className="flex w-full max-w-[1480px] justify-between">
                     <div className="flex gap-4 items-center">
                         <div className="py-2 px-4 flex justify-center">

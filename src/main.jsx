@@ -5,13 +5,16 @@ import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { SessionProvider } from './providers/SessionProvider.jsx'
 import { CartProvider } from './providers/CartProvider.jsx'
+import { CartDrawerProvider } from './providers/CartDrawerProvider.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <SessionProvider>
-        <CartProvider>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </CartProvider>
-    </SessionProvider>
+    <CartDrawerProvider>
+        <SessionProvider>
+            <CartProvider>
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
+            </CartProvider>
+        </SessionProvider>
+    </CartDrawerProvider>
 )

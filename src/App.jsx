@@ -2,14 +2,14 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import PublicLayout from "./layouts/PublicLayout"
 import Home from "./pages/Home"
 import Search from "./pages/Search"
-import Cart from "./pages/Cart"
 import UserLayout from "./layouts/UserLayout"
 import SellerLayout from "./layouts/SellerLayout"
 import UserDashboard from "./pages/users/Dashboard"
 import SellerDashboard from "./pages/sellers/Dashboard"
-import { useSession } from "./hooks/useSession"
 import Login from "./pages/Login"
-import Signup from "./pages/Signup"
+import Register from "./pages/Register"
+
+import { useSession } from "./hooks/useSession"
 
 const ProtectedRoute = ({ children, role }) => {
     const [auth] = useSession();
@@ -46,15 +46,14 @@ const App = () => {
                 <Route path="/" element={<PublicLayout />}>
                     <Route path="" element={<Home />} />
                     <Route path="search" element={<Search />} />
-                    <Route path="cart" element={<Cart />} />
                     <Route path="login" element={
                         <RedirectToDashboardIfLogged>
                             <Login />
                         </RedirectToDashboardIfLogged>
                     } />
-                    <Route path="signup" element={
+                    <Route path="register" element={
                         <RedirectToDashboardIfLogged>
-                            <Signup />
+                            <Register />
                         </RedirectToDashboardIfLogged>
                     } />
                 </Route>

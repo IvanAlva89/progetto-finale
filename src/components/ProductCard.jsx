@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
             product: product.id,
             user: auth.data.id,
             qnt: 1,
-        });
+        }, { isOnlyGenerator: true });
         
         setCart(cart_item);
     }

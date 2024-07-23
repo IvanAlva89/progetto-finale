@@ -30,6 +30,28 @@ export const CartProvider = ({ children }) => {
             setCart([...cart, cart_item]);
         }
     }
+
+    const removeFromCart = (item_id) => {
+        const i = cart.findIndex((c) => c.id == item_id);
+
+        if (i !== -1) {
+            const t_cart = [...cart];
+            t_cart.splice(i, 1);
+            setCart(t_cart);
+        }
+    }
+
+    const updateQnt = (item_id, mode) => {
+        const i = cart.findIndex((c) => c.id == item_id);
+
+        if (i !== -1) {
+            setCart(() => {
+                const t = [...cart];
+                t[i].qnt += mode == "A" ? 1 : -1;
+                return t;
+            });
+        }
+    }
     
     useEffect(() => {
         if (auth?.role) {
@@ -45,7 +67,7 @@ export const CartProvider = ({ children }) => {
     }, [cart])
 
     return (
-        <CartContext.Provider value={[cart, addToCart]}>
+        <CartContext.Provider value={[cart, addToCart, removeFromCart, updateQnt]}>
             {children}
         </CartContext.Provider>
     )

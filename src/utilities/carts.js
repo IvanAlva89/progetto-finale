@@ -14,8 +14,8 @@ export const getUserCartItems = (user_id) => {
  * @param {object} cart_item 
  * @returns {object}
  */
-export const addItemToCart = (cart_item) => {
-    return db.create("cart_items", cart_item);
+export const addItemToCart = (cart_item, options = { isOnlyGenerator: false }) => {
+    return db.create("cart_items", cart_item, options);
 }
 
 /**

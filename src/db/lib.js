@@ -32,13 +32,13 @@ const select = (from, where = null) => {
 }
 
 // Create
-const create = (to, value) => {
+const create = (to, value, { isOnlyGenerator = false }) => {
     const item = {
         ...value,
         id: new Date().getTime().toString()
     };
 
-    data[to].push(item);
+    if (!isOnlyGenerator) data[to].push(item);
 
     return item;
 }
