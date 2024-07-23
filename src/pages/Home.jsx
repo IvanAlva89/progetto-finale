@@ -3,6 +3,7 @@ import ProductCard from "../components/ProductCard";
 import { getAllProducts } from "../utilities/products";
 import { getAllCategories } from "../utilities/categories";
 import { useRef } from "react";
+import Footer from "../components/shared/Footer"
 
 const Home = () => {
     const products = getAllProducts();
@@ -82,6 +83,7 @@ const Home = () => {
                     </div>
                 </section>
             </div>
+            <Footer />
         </>
     );
 };
