@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { SessionProvider } from './providers/SessionProvider.jsx'
 import { CartProvider } from './providers/CartProvider.jsx'
 import { CartDrawerProvider } from './providers/CartDrawerProvider.jsx'
+import Footer from './components/shared/Footer.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <CartDrawerProvider>
@@ -13,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <CartProvider>
                 <BrowserRouter>
                     <App />
+                    <Footer />
                 </BrowserRouter>
             </CartProvider>
         </SessionProvider>
