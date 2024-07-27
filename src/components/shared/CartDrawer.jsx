@@ -1,5 +1,6 @@
 import { useCart } from "../../hooks/useCart";
 import { useCartDrawer } from "../../hooks/useCartDrawer";
+import { Link } from "react-router-dom"; // Importa Link
 
 const CartDrawer = () => {
     const [cart, __, removeItem, updateItemQnt] = useCart();
@@ -34,7 +35,7 @@ const CartDrawer = () => {
                                             Shopping cart
                                         </h2>
                                         <div className="ml-3 flex h-7 items-center">
-                                            <button
+                                            <button 
                                                 onClick={() => setIsCartOpen(false)}
                                                 type="button"
                                                 className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
@@ -84,13 +85,13 @@ const CartDrawer = () => {
                                                             <div>
                                                                 <div className="flex justify-between text-base font-medium text-gray-900">
                                                                     <h3>
-                                                                        <a href="#">
+                                                                        <Link to={`/product/${item.id}`}> {/* Collega alla ProductPage */}
                                                                             {
                                                                                 item
                                                                                     .product
                                                                                     .name
                                                                             }
-                                                                        </a>
+                                                                        </Link>
                                                                     </h3>
                                                                     <p className="ml-4">
                                                                         €{" "}
@@ -164,7 +165,6 @@ const CartDrawer = () => {
                                             >
                                                 Continua lo Shopping
                                                 <span aria-hidden="true">
-                                                    {" "}
                                                     &rarr;
                                                 </span>
                                             </button>

@@ -1,29 +1,26 @@
-import { Navigate, Route, Routes } from "react-router-dom"
-import PublicLayout from "./layouts/PublicLayout"
-import Home from "./pages/Home"
-import Search from "./pages/Search"
-import UserLayout from "./layouts/UserLayout"
-import SellerLayout from "./layouts/SellerLayout"
-import UserDashboard from "./pages/users/Dashboard"
-import SellerDashboard from "./pages/sellers/Dashboard"
-import Login from "./pages/Login"
-import Register from "./pages/Register"
+import { Navigate, Route, Routes } from "react-router-dom";
+import PublicLayout from "./layouts/PublicLayout";
+import Home from "./pages/Home";
+import Search from "./pages/Search";
+import UserLayout from "./layouts/UserLayout";
+import SellerLayout from "./layouts/SellerLayout";
+import UserDashboard from "./pages/users/Dashboard";
+import SellerDashboard from "./pages/sellers/Dashboard";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import ProductPage from "./components/ProductPage"; // Importa ProductPage
 
-import { useSession } from "./hooks/useSession"
+import { useSession } from "./hooks/useSession";
 
 const ProtectedRoute = ({ children, role }) => {
     const [auth] = useSession();
 
-    if (auth.role && auth.role == role) {
+    if (auth.role && auth.role === role) {
         return children;
     }
 
-    return (
-        <>
-            <Navigate to="/login" />
-        </>
-    )
-}
+    return <Navigate to="/login" />;
+};
 
 const RedirectToDashboardIfLogged = ({ children }) => {
     const [auth] = useSession();
@@ -32,12 +29,8 @@ const RedirectToDashboardIfLogged = ({ children }) => {
         return children;
     }
 
-    return (
-        <>
-            <Navigate to={`/${auth.role}s`} />
-        </>
-    )
-}
+    return <Navigate to={`/${auth.role}s`} />;
+};
 
 const App = () => {
     return (
@@ -46,6 +39,7 @@ const App = () => {
                 <Route path="/" element={<PublicLayout />}>
                     <Route path="" element={<Home />} />
                     <Route path="search" element={<Search />} />
+                    <Route path="product/:productId" element={<ProductPage />} /> {/* Aggiungi questa linea */}
                     <Route path="login" element={
                         <RedirectToDashboardIfLogged>
                             <Login />
@@ -73,7 +67,7 @@ const App = () => {
                 </Route>
             </Routes>
         </>
-    )
-}
+    );
+};
 
-export default App
+export default App;
