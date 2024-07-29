@@ -17,7 +17,7 @@ const Home = () => {
                         portata di tutti
                     </h1>
                     <div className="flex flex-col justify-center items-center">
-                        <Link to="/search" className="bg-violet-200 hover:bg-violet-300 font-lato font-bold rounded-md px-7 py-3 ">
+                        <Link to="/search" className="bg-violet-200 hover:bg-violet-300 font-lato font-bold rounded-full px-7 py-3 ">
                             Vai alla Ricerca
                         </Link>
                     </div>
@@ -76,7 +76,7 @@ const Home = () => {
                         }
                         </div>
                     </div>
-                    <div className="gap-3 flex p-6 rounded justify-center flex-wrap">
+                    <div className="gap-3 flex p-6 rounded justify-center flex-wrap rounded-full">
                         {products.map((product) => {
                             return (
                                 <ProductCard

@@ -15,7 +15,7 @@ const UserDashboard = () => {
 
     return (
         <>
-            <h1>User Dashboard</h1>
+            <h1 >User Dashboard</h1>
             <div>
                 <table>
                     <thead>
