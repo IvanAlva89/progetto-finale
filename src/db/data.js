@@ -27,6 +27,18 @@ export const relations = {
             collection: "users",
             primary_key: "id"
         }
+    ],
+    order_items: [
+        {
+            label: "product",
+            collection: "products",
+            primary_key: "id"
+        },
+        {
+            label: "user",
+            collection: "users",
+            primary_key: "id"
+        }
     ]
 }
 
@@ -73,7 +85,9 @@ export default {
             category: "2",
             seller: "1",
             cover_image: "https://www.phoneclick.it/img/catalogo/s24%20black.jpg",
-            images: []
+            images: [],
+            subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ante justo. Integer euismod libero id mauris malesuada tincidunt.",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ante justo. Integer euismod libero id mauris malesuada tincidunt. Vivamus commodo nulla ut lorem rhoncus aliquet. Duis dapibus augue vel ipsum pretium, et venenatis sem blandit. Quisque ut erat vitae nisi ultrices placerat non eget velit. Integer ornare mi sed ipsum lacinia, non sagittis mauris blandit. Morbi fermentum libero vel nisl suscipit, nec tincidunt mi consectetur."
         },
         {
             id: "2",
@@ -85,7 +99,9 @@ export default {
             images: [
                 "https://p3-ofp.static.pub/fes/cms/2022/12/02/8p3ejedwxmbaliechtzu8zu2d9v7zj058740.png",
                 "https://p1-ofp.static.pub/fes/cms/2022/12/02/4l7tuehnri0hq03jcn3pcv16qv7eae774213.png"
-            ]
+            ],
+            subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ante justo. Integer euismod libero id mauris malesuada tincidunt.",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ante justo. Integer euismod libero id mauris malesuada tincidunt. Vivamus commodo nulla ut lorem rhoncus aliquet. Duis dapibus augue vel ipsum pretium, et venenatis sem blandit. Quisque ut erat vitae nisi ultrices placerat non eget velit. Integer ornare mi sed ipsum lacinia, non sagittis mauris blandit. Morbi fermentum libero vel nisl suscipit, nec tincidunt mi consectetur."
         },
         {
             id: "3",
@@ -97,7 +113,9 @@ export default {
             images: [
                 "https://d2e6ccujb3mkqf.cloudfront.net/729e76d6-d466-410e-96bd-8dca7396e1f6-4_59d4a2eb-a91d-4cbb-8ccd-a8ac02d2fd8e.jpg",
                 "https://d2e6ccujb3mkqf.cloudfront.net/729e76d6-d466-410e-96bd-8dca7396e1f6-3_c3955bed-4d88-4f89-a9fb-8683c9eddf34.jpg"
-            ]
+            ],
+            subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ante justo. Integer euismod libero id mauris malesuada tincidunt.",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ante justo. Integer euismod libero id mauris malesuada tincidunt. Vivamus commodo nulla ut lorem rhoncus aliquet. Duis dapibus augue vel ipsum pretium, et venenatis sem blandit. Quisque ut erat vitae nisi ultrices placerat non eget velit. Integer ornare mi sed ipsum lacinia, non sagittis mauris blandit. Morbi fermentum libero vel nisl suscipit, nec tincidunt mi consectetur."
         },
     ],
     cart_items: [
@@ -114,6 +132,22 @@ export default {
             product: "3",
             user: "1",
             qnt: 1,
+        },
+    ],
+    order_items: [
+        {
+            id: "1",
+            user: "1",
+            product: "1",
+            qnt: 2,
+            created_at: new Date().toLocaleString("it-IT")
+        },
+        {
+            id: "2",
+            user: "1",
+            product: "2",
+            qnt: 2,
+            created_at: new Date().toLocaleString("it-IT")
         },
     ]
 }

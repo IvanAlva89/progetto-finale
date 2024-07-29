@@ -8,7 +8,7 @@ import UserDashboard from "./pages/users/Dashboard";
 import SellerDashboard from "./pages/sellers/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import ProductPage from "./components/ProductPage"; // Importa ProductPage
+import Product from "./pages/Product"; // Importa ProductPage
 
 import { useSession } from "./hooks/useSession";
 
@@ -39,7 +39,7 @@ const App = () => {
                 <Route path="/" element={<PublicLayout />}>
                     <Route path="" element={<Home />} />
                     <Route path="search" element={<Search />} />
-                    <Route path="product/:productId" element={<ProductPage />} /> {/* Aggiungi questa linea */}
+                    <Route path="product/:productId" element={<Product />} /> {/* Aggiungi questa linea */}
                     <Route path="login" element={
                         <RedirectToDashboardIfLogged>
                             <Login />
