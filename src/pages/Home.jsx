@@ -63,20 +63,20 @@ const Home = () => {
                             <p>24/7 customer support bot</p>
                         </div>
                     </div>
-                    <div className="flex gap-2 flex-col">
+                    <div className="flex gap-2 flex-col ">
                         <div>
-                        <h3 className="">Categories: </h3>
+                        <h3 className="flex font-lato justify-center text-5xl font-black">Categories: </h3>
                         <br />
                         </div>
-                        <div className="flex gap-2">
+                        <div className="flex gap-64 font-lato justify-center py-12 text-xl font-black ">
                         {
                             categories.current.map(c => (
-                                <Link key={c.id} to={`/search?c=${c.name}`}>{c.name}</Link>
+                                <Link key={c.id} to={`/search?c=${c.name}`} className="hover:bg-blue-100 hover:rounded-full text-center w-28">{c.name}</Link>
                             ))
                         }
                         </div>
                     </div>
-                    <div className="gap-3 flex p-6 rounded justify-center">
+                    <div className="gap-3 flex p-6 rounded justify-center flex-wrap">
                         {products.map((product) => {
                             return (
                                 <ProductCard
