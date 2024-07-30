@@ -62,7 +62,7 @@ export const CartProvider = ({ children }) => {
 
     useEffect(() => {
         if (cart.length > 0) {
-            replaceAllCartItem(cart.map(e => ({ ...e, product: e.product.id, user: e.user.id })));
+            replaceAllCartItem(cart.length > 0 ? cart.map(e => ({ ...e, product: e.product.id, user: e.user?.id })) : []);
         }
     }, [cart])
 

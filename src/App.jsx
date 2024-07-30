@@ -45,7 +45,7 @@ const App = () => {
                             <Login />
                         </RedirectToDashboardIfLogged>
                     } />
-                    <Route path="register" element={
+                    <Route path="signup" element={
                         <RedirectToDashboardIfLogged>
                             <Register />
                         </RedirectToDashboardIfLogged>

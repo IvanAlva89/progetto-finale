@@ -76,7 +76,7 @@ const Home = () => {
                         }
                         </div>
                     </div>
-                    <div className="gap-3 flex p-6 rounded justify-center flex-wrap rounded-full">
+                    <div className="gap-3 flex p-6 justify-center flex-wrap rounded-full">
                         {products.map((product) => {
                             return (
                                 <ProductCard

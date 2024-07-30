@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom"
 import { useSession } from "../../hooks/useSession"
 import CartButton from "../CartButton";
+import { Memory } from "../../utilities/Memory";
 
 const PublicNavbar = () => {
     const [auth, setAuth] = useSession();
 
     const handleLogout = (e) => {
         e.preventDefault();
+
+        Memory.remove("orders");
 
         setAuth({ 
             role: null,
