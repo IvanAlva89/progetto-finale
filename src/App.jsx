@@ -9,6 +9,8 @@ import SellerDashboard from "./pages/sellers/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Product from "./pages/Product"; // Importa ProductPage
+import UserSettings from "./pages/users/Settings";
+import UserSample from "./pages/users/Sample";
 
 import { useSession } from "./hooks/useSession";
 
@@ -57,6 +59,8 @@ const App = () => {
                     </ProtectedRoute>
                 }>
                     <Route path="" element={<UserDashboard />} />
+                    <Route path="settings" element={<UserSettings />} />
+                    <Route path="sample" element={<UserSample />} />
                 </Route>
                 <Route path="/sellers" element={
                     <ProtectedRoute role="seller">
