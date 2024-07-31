@@ -8,9 +8,10 @@ import UserDashboard from "./pages/users/Dashboard";
 import SellerDashboard from "./pages/sellers/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Product from "./pages/Product"; // Importa ProductPage
+import Product from "./pages/Product"; 
 import UserSettings from "./pages/users/Settings";
 import UserSample from "./pages/users/Sample";
+import UserCheckout from "./pages/users/Checkout";
 
 import { useSession } from "./hooks/useSession";
 
@@ -41,7 +42,7 @@ const App = () => {
                 <Route path="/" element={<PublicLayout />}>
                     <Route path="" element={<Home />} />
                     <Route path="search" element={<Search />} />
-                    <Route path="product/:productId" element={<Product />} /> {/* Aggiungi questa linea */}
+                    <Route path="product/:productId" element={<Product />} />
                     <Route path="login" element={
                         <RedirectToDashboardIfLogged>
                             <Login />
@@ -61,6 +62,7 @@ const App = () => {
                     <Route path="" element={<UserDashboard />} />
                     <Route path="settings" element={<UserSettings />} />
                     <Route path="sample" element={<UserSample />} />
+                    <Route path="checkout" element={<UserCheckout />} />
                 </Route>
                 <Route path="/sellers" element={
                     <ProtectedRoute role="seller">
