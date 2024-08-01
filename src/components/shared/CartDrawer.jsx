@@ -150,18 +150,17 @@ const CartDrawer = () => {
                                     <div className="mt-6">
                                         <a
                                             href="#"
-                                            className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                                            className="flex items-center justify-center rounded-full border border-transparent bg-[#2196F3] px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-200 hover:text-black"
                                         >
                                             Checkout
                                         </a>
                                     </div>
                                     <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                                         <p>
-                                            o
                                             <button
                                                 onClick={() => setIsCartOpen(false)}
                                                 type="button"
-                                                className="font-medium text-indigo-600 hover:text-indigo-500"
+                                                className="font-medium text-indigo-600 hover:text-[#2196F3]"
                                             >
                                                 Continua lo Shopping
                                                 <span aria-hidden="true">

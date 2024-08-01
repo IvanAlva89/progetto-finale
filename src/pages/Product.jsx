@@ -34,7 +34,7 @@ const ProductPage = () => {
                         </div>
                         <div className="flex -mx-2 mb-4">
                             <div className="w-full px-2">
-                                <button onClick={addToCart} className="w-full bg-blue-100  text-gray-800 hover:text-white py-2 px-4 rounded-full font-bold hover:bg-blue-500 ">Add to Cart</button>
+                                <button onClick={addToCart} className="w-full bg-blue-100  text-gray-800 hover:text-white py-2 px-4 rounded-full font-bold hover:bg-[#2196F3] ">Aggiungi al carrello</button>
                             </div>
                         </div>
                     </div>

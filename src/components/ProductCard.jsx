@@ -34,7 +34,7 @@ const ProductCard = ({ product }) => {
             </Link>
             {
                 auth?.role === "user" ? (
-                    <button onClick={handleButtonClick} className="bg-[#1e90ff] hover:bg-blue-700 text-white rounded-md px-7 py-3">Aggiungi al carrello</button>
+                    <button onClick={handleButtonClick} className="bg-[#1e90ff] hover:bg-blue-700 text-white rounded-full px-7 py-3">Aggiungi al carrello</button>
                 ) : (
                     <Link to="/login?r=home" className="bg-[#1e90ff] hover:bg-blue-700 text-white px-7 py-3 rounded-full" onClick={(e) => e.stopPropagation()}>Aggiungi al carrello</Link>
                 )
