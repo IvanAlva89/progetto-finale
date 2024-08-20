@@ -6,8 +6,7 @@ import { toast } from "react-toastify";
 
 const ProductCard = ({ product }) => {
     const [auth] = useSession();
-    const [cart, setCart] = useCart();
-    const navigate = useNavigate();
+    const [_, setCart] = useCart();
 
     const addToCart = (product) => {
         const cart_item = addItemToCart({
