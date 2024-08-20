@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { useSession } from "../../hooks/useSession"
 import CartButton from "../CartButton";
 import { Memory } from "../../utilities/Memory";
+import logo from "../../assets/logo.png"
 
 const PublicNavbar = () => {
     const [auth, setAuth] = useSession();
@@ -20,9 +21,13 @@ const PublicNavbar = () => {
 
     return (
         <>
-            <nav className="fixed w-full bg-white flex justify-center items-center h-12 z-40">
+            <nav className="fixed w-full bg-white flex justify-center items-center h-12 z-40 shadow">
                 <div className="flex w-full max-w-[1480px] justify-between">
                     <div className="flex gap-4 items-center">
+                        <div className="px-6 pr-12 flex justify-center items-center gap-2">
+                            <img src={logo} alt="Easy shop logo" className="h-6 w-auto" />
+                            <span className="font-bold">Easy Shop</span>
+                        </div>
                         <div className="py-2 px-4 flex justify-center hover:bg-blue-200 hover:text-white">
                             <Link to="/">Home</Link>
                         </div>
