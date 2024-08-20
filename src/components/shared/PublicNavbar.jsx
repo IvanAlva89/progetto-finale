@@ -24,7 +24,7 @@ const PublicNavbar = () => {
             <nav className="fixed w-full bg-white flex justify-center items-center h-12 z-40 shadow">
                 <div className="flex w-full max-w-[1480px] justify-between">
                     <div className="flex gap-4 items-center">
-                        <div className="px-6 flex justify-center items-center gap-2">
+                        <div className="flex justify-center items-center gap-2">
                             <Link to="/" className="px-6 pr-12 flex justify-center items-center gap-2">
                                 <img src={logo} alt="Easy shop logo" className="h-6 w-auto" />
                                 <span className="font-bold">Easy Shop</span>
