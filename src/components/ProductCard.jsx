@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
 import { useSession } from "../hooks/useSession";
 import { addItemToCart } from "../utilities/carts";
+import { toast } from "react-toastify";
 
 const ProductCard = ({ product }) => {
     const [auth] = useSession();
@@ -17,6 +18,7 @@ const ProductCard = ({ product }) => {
         }, { isOnlyGenerator: true });
 
         setCart(cart_item);
+        toast.success(`${product.name} aggiunto al carrello`);
     }
 
     const handleButtonClick = (e) => {

@@ -4,6 +4,7 @@ import { getProductById } from "../utilities/products";
 import { addItemToCart } from "../utilities/carts";
 import { useCart } from "../hooks/useCart";
 import { useSession } from "../hooks/useSession";
+import { toast } from "react-toastify";
 
 const ProductPage = () => {
     const params = useParams();
@@ -21,6 +22,7 @@ const ProductPage = () => {
         }, { isOnlyGenerator: true });
 
         setCart(cart_item);
+        toast.success(`${product.name} aggiunto al carrello`);
     }
 
     return (
